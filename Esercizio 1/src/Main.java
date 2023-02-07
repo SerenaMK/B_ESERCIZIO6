@@ -17,18 +17,25 @@ public class Main {
 		Set<String> parole = new HashSet<String>();
 		Set<String> paroleDuplicate = new HashSet<String>();
 		
-		System.out.println("Specificare un numero intero:");
-		int n = Integer.parseInt(sc.nextLine());
-		
-		System.out.println("Specificare " + n + " parole.");
-		
-		for (int i = 0; i < n; i++) {
-			String parola = sc.nextLine();
-			if (parole.contains(parola)) {
-				paroleDuplicate.add(parola);
+		try {
+			System.out.println("Specificare un numero intero:");
+			int n = Integer.parseInt(sc.nextLine());
+			
+			System.out.println("Specificare " + n + " parole.");
+			
+			for (int i = 0; i < n; i++) {
+				String parola = sc.nextLine();
+				if (parole.contains(parola)) {
+					paroleDuplicate.add(parola);
+				}
+				parole.add(parola);
 			}
-			parole.add(parola);
 		}
+		catch ( NumberFormatException e ) {
+			System.out.println("ERRORE: il valore inserito non è un numero.");
+			esercizio();
+		}
+		
 		
 		System.out.println("Parole distinte: " + parole);
 		System.out.println("Numero parole distinte: " + parole.size());
